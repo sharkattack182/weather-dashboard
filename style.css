@@ -9,11 +9,6 @@ body {
 }
 
 
-.container-flex {
-    min-height: 100vh;
-    min-width: 100vw;
-}
-
 header {
     font-size: large;
     padding-top: 5px;
@@ -37,11 +32,41 @@ header {
     min-height: 100vh;
     padding-right: 0 !important;
     padding-left: 0 !important;
+    padding-top: 30px;
+}
+
+.weather-content {
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.forecast {
+    padding-bottom: 100px;
+}
+
+.weatherData {
+    padding: 15px;
+    text-align: left;
+    float: left;
+}
+
+.col-md-2 {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width: 700px) {
     .div1 {
         min-height: fit-content;
+        padding-bottom: 30px;
+    }
+
+    .div2 {
+        padding-top: 0;
+    }
+
+    .forecast {
         padding-bottom: 30px;
     }
 }
