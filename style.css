@@ -18,6 +18,10 @@ header {
 
 }
 
+.hidden {
+    display: none;
+}
+
 .div1 {
     background-color: blue;
     min-height: 100vh;
