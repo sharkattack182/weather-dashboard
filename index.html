@@ -14,10 +14,22 @@
 <body>
     <div class="container-flex">
         <header class="text-center">Weather Dashboard</header>
-        <riv class="row">
-            <div class="div1 col-lg-3">HelloWorld</div>
-            <div class="div2 col-lg-9">Whats up</div>
-        </riv>
+        <div class="row">
+            <div class="div1 col-md-3">
+                <h2>Search By City</h2>
+                <form>
+                    <input type="text">
+                    <button type="submit" id="search">Search</button>
+                </form>
+                <h2>Favorites</h2>
+                <div id="favorites"></div>
+            </div>
+            <div class="div2 col-md-9 text-center">
+                <h2><span class="city">Charlotte's</span> Weather Forecast</h2>
+                <div class="content"></div>
+                <h3>5 Day Forecast</h3>
+            </div>
+        </div>
 
     </div>
     <script src="script.js"></script>
