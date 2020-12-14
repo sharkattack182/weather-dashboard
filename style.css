@@ -1,0 +1,21 @@
+.container-flex {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+header {
+    font-size: large;
+    padding: 5px;
+    background-color: navy;
+    color: white;
+}
+
+.div1 {
+    background-color: blue;
+    min-height: 100vh;
+}
+
+.div2 {
+    background-color: purple;
+    min-height: 100vh;
+}
