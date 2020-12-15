@@ -1,3 +1,7 @@
+var currentDay = moment().format('dddd MMMM Do YYYY');
+
+console.log(currentDay)
+
 $("#search").on("click", function () {
     // prevents the page from restarting
     event.preventDefault();
@@ -39,5 +43,6 @@ $("#search").on("click", function () {
         })
 
 
+    $(".forecast").text(currentDay);
     $(".hidden").css("display", "inline-block");
 })
