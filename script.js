@@ -3,14 +3,14 @@ var currentDay = moment().format('dddd ll');
 console.log(currentDay);
 
 var searchArray = ["charlotte", "tempe", "atlanta"];
+localStorage.setItem("search-history", JSON.stringify(searchArray));
 
 window.onload = function() {
-
 // setting the app up to render all recent searches
 var render = localStorage.getItem("search-history");
 console.log(render)
 var searches = JSON.parse(render);
-if (searches === null) {
+if(render === null) {
     localStorage.setItem("search-history", JSON.stringify(searchArray));
 }
 
@@ -41,9 +41,9 @@ $("#search").on("click", function () {
     } else {
         searchArray.push(searchQuery);
         console.log(searchArray)
-    
+     // localStorage.setItem("search-history", JSON.stringify(searchArray));
     }
-    localStorage.setItem("search-history", JSON.stringify(searchArray));
+   
 
     // setting up variables for ajax call
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -147,4 +147,6 @@ $("#search").on("click", function () {
     $(".welcome").css("display", "none")
     $(".hidden").css("display", "inline-block");
 })
+
+// localStorage.setItem("search-history", JSON.stringify(searchArray));
 }
