@@ -18,13 +18,18 @@ header {
 
 }
 
+.title {
+    font-size: 50px;
+    margin-top: 30px;
+}
+
 .hidden {
     display: none;
     width: 80%;
 }
 
 .div1 {
-    background-color: blue;
+    background-color: rgb(185, 185, 192);
     min-height: 100vh;
     text-align: center;
     padding-top: 30px;
@@ -33,7 +38,7 @@ header {
 }
 
 .div2 {
-    background-color: purple;
+    background-color: rgb(43, 134, 194);
     min-height: 100vh;
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -41,24 +46,33 @@ header {
 }
 
 .weather-content {
-    
+    background-color: rgb(185, 185, 192);
+    border-radius: 25px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .forecast {
-    padding-bottom: 100px;
+    padding-bottom: 25px;
 }
-
 .weatherData {
     padding: 15px;
     text-align: left;
     float: left;
 }
 
+.fiveDay {
+    color: white;
+    font-size: 40px;
+    padding: 10px;
+}
+
 .col-md-2 {
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    background-color: rgb(185, 185, 192);
 }
 
 @media (max-width: 900px) {
@@ -78,12 +92,19 @@ header {
 
 @media (max-width: 400px) {
 
+    .div1 {
+        background-color: rgb(43, 134, 194);
+    }
     .div2 {
         padding-top: 0;
     }
 
     .hidden {
         width: 100%;
+    }
+
+    .search {
+        color: white;
     }
 
     .favorites {
@@ -96,4 +117,21 @@ header {
         text-align: center;
         float: none;
     }
+    .weather-content {
+        border-radius: 0;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .col-md-2 {
+        margin-top: 10px !important;
+        margin-bottom: 0;
+    }
+
+    .four {
+        margin-bottom: 30px;
+    }
+    
 }

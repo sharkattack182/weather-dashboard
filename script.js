@@ -37,11 +37,22 @@ $("#search").on("click", function () {
             var iconUrl = "https://openweathermap.org/img/w/" + iconKey + ".png";
             console.log(iconUrl)
             $("#condition-icon").attr("src", iconUrl);
-            $(".icon").text(response.weather[0].description);
+            // $(".icon").text(response.weather[0].description);
 
             // temp conversion
             var k = response.main.temp;
             var f = (k - 273.15) * 9/5 + 32;
+
+            // UV index
+            // var lat = response.coord.lat;
+            // var long = response.coord.lon;
+            // $.ajax({
+            //     url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + long + "&appid=" + APIKey,
+            //     method: "GET"
+            // }).then(function(r) {
+            //     console.log(r.value);
+            //     $(".uv").text("UV Index: " + r.value);
+            // })
 
 
             $(".temp").text("Temp: " + Math.round(f) + " F");
@@ -68,6 +79,7 @@ $("#search").on("click", function () {
             var date = moment().add(increment,'days');
             var d = moment(date).format("dddd")
             var newDate = $("<h5>");
+            newDate.attr("class", "date-format");
             newDate.text(d);
             $("." + i).append(newDate);
 
@@ -92,7 +104,7 @@ $("#search").on("click", function () {
 
             // setting the windspeed
             var newWS = $("<h5>");
-            newWS.text(Math.round(day.speed) + "mph");
+            newWS.text("Wind Speed: " + Math.round(day.speed) + "mph");
             $("." + i).append(newWS);
         }
     })

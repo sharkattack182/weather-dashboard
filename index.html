@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous"></script>    <link rel="stylesheet" href="style.css">
+    crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Weather Dashboard</title>
@@ -14,10 +17,10 @@
 
 <body>
     <div class="container-flex">
-        <header class="text-center">Weather Dashboard</header>
+        <header class="text-center">Weather Dashboard <i class="fas fa-cloud-sun"></i> </header>
         <div class="row">
             <div class="div1 col-md-3">
-                <h2>Search By City</h2>
+                <h2 class="search">Search By City</h2>
                 <form>
                     <input type="text" id="input-value">
                     <button type="submit" id="search">Search</button>
@@ -28,29 +31,29 @@
             <div class="div2 col-md-9 text-center">
                 <div class="container-flex hidden">
                     <div class="row">
-                        <div class="col-md-12 weather-content" style="background-color: blue;">
-                            <h2><span class="city"></span> Weather Forecast</h2>
+                        <div class="col-md-12 weather-content">
+                            <h2 class="title"><span class="city"></span> Weather Forecast</h2>
                             <h3 class="forecast">Date</h3>
                             <div class="weatherData">
-                                    <img src="" alt="icon" id="condition-icon"><h4 class="icon">Icon</h4>
+                                    <img src="" alt="icon" id="condition-icon">
                                     <h4 class="temp">Temp</h4>
                                     <h4 class="humidity">Humidity</h4>
                                     <h4 class="windspeed">Windspeed</h4>
-                                    <h4 class="uv">UV Index</h4>
+                                    <!-- <h4 class="uv">UV Index</h4> -->
                                 </div>
 
                             </div>
                         </div>
                         <div class="row">
 
-                            <h3>5 Day Forecast</h3>
+                            <h3 class="fiveDay">5 Day Forecast</h3>
 
                             <div class="row">
-                                <div class="col-md-2 0" style="background-color: green;"></div>
-                                <div class="col-md-2 1" style="background-color: yellow;"></div>
-                                <div class="col-md-2 2" style="background-color: cyan;"></div>
-                                <div class="col-md-2 3" style="background-color: magenta;"></div>
-                                <div class="col-md-2 4" style="background-color: navy;"></div>
+                                <div class="col-md-2 0" ></div>
+                                <div class="col-md-2 1"></div>
+                                <div class="col-md-2 2"></div>
+                                <div class="col-md-2 3"></div>
+                                <div class="col-md-2 4 four"></div>
                             </div>
                         </div>
                     </div>
