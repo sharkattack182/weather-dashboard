@@ -8,8 +8,11 @@ window.onload = function() {
 
 // setting the app up to render all recent searches
 var render = localStorage.getItem("search-history");
-console.log(JSON.parse(render))
+console.log(render)
 var searches = JSON.parse(render);
+if (searches === null) {
+    localStorage.setItem("search-history", JSON.stringify(searchArray));
+}
 
 for (let i = 0; i < searches.length; i++) {
     var newSearchItem = $("<div>");
