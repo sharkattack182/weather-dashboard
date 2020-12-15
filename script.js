@@ -14,7 +14,7 @@ $("#search").on("click", function () {
         "q=" + searchQuery + "&appid=" + APIKey;
 
         console.log(queryURL);
-        
+
     // Ajax call 
     $.ajax({
         url: queryURL,
@@ -23,6 +23,17 @@ $("#search").on("click", function () {
         // We store all of the retrieved data inside of an object called "response"
         .then(function (response) {
             console.log(response)
+
+
+            // filling in apropriate info
+            $(".city").text(response.name + "'s");
+
+            // weather icon
+            var iconKey = response.weather[0].icon;
+            var iconUrl = "https://openweathermap.org/img/w/" + iconKey + ".png";
+            console.log(iconUrl)
+            $("#condition-icon").attr("src", iconUrl);
+            $(".icon").text(response.weather[0].description);
         })
 
 
