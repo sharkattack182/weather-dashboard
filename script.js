@@ -2,18 +2,18 @@ var currentDay = moment().format('dddd ll');
 
 console.log(currentDay);
 
-var searchArray = ["charlotte", "tempe", "atlanta"];
+var searches = JSON.parse(localStorage.getItem("search-history"));
 
 window.onload = function() {
 // setting the app up to render all recent searches
-var render = localStorage.getItem("search-history");
-console.log(render)
-var searches = JSON.parse(render);
-if(render === null) {
-    localStorage.setItem("search-history", JSON.stringify(searchArray));
-} else {
-    searches = JSON.parse(render);
-}
+// var render = localStorage.getItem("search-history");
+// console.log(render)
+// var searches = JSON.parse(render);
+// if(render === null) {
+//     localStorage.setItem("search-history", JSON.stringify(searchArray));
+// } else {
+//     searches = JSON.parse(render);
+// }
 
 for (let i = 0; i < searches.length; i++) {
     var newSearchItem = $("<div>");
@@ -35,15 +35,15 @@ $("#search").on("click", function () {
     console.log(searchQuery);
 
     // local storage
-    var boolean = searchArray.includes(searchQuery);
+    var boolean = searches.includes(searchQuery);
     console.log(boolean)
     if(boolean === true) {
-        console.log(searchArray);
+        console.log(searches);
     } else {
-        searchArray.push(searchQuery);
-        console.log(searchArray);
-        localStorage.removeItem("search-history")
-        localStorage.setItem("search-history", JSON.stringify(searchArray));
+        searches.push(searchQuery);
+        console.log(searches);
+        // localStorage.removeItem("search-history")
+        localStorage.setItem("search-history", JSON.stringify(searches));
     }
    
 
