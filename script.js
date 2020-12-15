@@ -2,27 +2,13 @@ var currentDay = moment().format('dddd ll');
 
 console.log(currentDay);
 
-var searches = JSON.parse(localStorage.getItem("search-history"));
+var searches = [];
 
 window.onload = function() {
 // setting the app up to render all recent searches
 // var render = localStorage.getItem("search-history");
 // console.log(render)
-// var searches = JSON.parse(render);
-// if(render === null) {
-//     localStorage.setItem("search-history", JSON.stringify(searchArray));
-// } else {
-//     searches = JSON.parse(render);
-// }
-
-for (let i = 0; i < searches.length; i++) {
-    var newSearchItem = $("<div>");
-    var str = searches[i].slice(1);
-    var firstL = searches[i].charAt(0).toUpperCase();
-    newSearchItem.text(firstL + str);
-    newSearchItem.attr("class", "col-sm-12 searchItem");
-    $("#favorites").append(newSearchItem);
-}
+// var searches = JSON.parse(render)
 
 $("#search").on("click", function () {
     // prevents the page from restarting
@@ -149,6 +135,21 @@ $("#search").on("click", function () {
     $(".welcome").css("display", "none")
     $(".hidden").css("display", "inline-block");
 })
+
+if(localStorage.getItem("search-history") === null) {
+    searches.push(searchQuery);
+    localStorage.setItem("search-history", JSON.stringify(searches));
+} else {
+    searches = JSON.parse(localStorage.getItem("search-history"));
+    for (let i = 0; i < searches.length; i++) {
+        var newSearchItem = $("<div>");
+        var str = searches[i].slice(1);
+        var firstL = searches[i].charAt(0).toUpperCase();
+        newSearchItem.text(firstL + str);
+        newSearchItem.attr("class", "col-sm-12 searchItem");
+        $("#favorites").append(newSearchItem);
+    }
+}
 
 // localStorage.setItem("search-history", JSON.stringify(searchArray));
 }
