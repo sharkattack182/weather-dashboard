@@ -1,6 +1,24 @@
 var currentDay = moment().format('dddd ll');
 
-console.log(currentDay)
+console.log(currentDay);
+
+var searchArray = ["charlotte", "tempe", "atlanta"];
+
+window.onload = function() {
+
+// setting the app up to render all recent searches
+var render = localStorage.getItem("search-history");
+console.log(JSON.parse(render))
+var searches = JSON.parse(render);
+
+for (let i = 0; i < searches.length; i++) {
+    var newSearchItem = $("<div>");
+    var str = searches[i].slice(1);
+    var firstL = searches[i].charAt(0).toUpperCase();
+    newSearchItem.text(firstL + str);
+    newSearchItem.attr("class", "col-sm-12 searchItem");
+    $("#favorites").append(newSearchItem);
+}
 
 $("#search").on("click", function () {
     // prevents the page from restarting
@@ -11,6 +29,18 @@ $("#search").on("click", function () {
     // settin search query to the input value
     var searchQuery = $("#input-value").val().trim();
     console.log(searchQuery);
+
+    // local storage
+    var boolean = searchArray.includes(searchQuery);
+    console.log(boolean)
+    if(boolean === true) {
+        console.log(searchArray);
+    } else {
+        searchArray.push(searchQuery);
+        console.log(searchArray)
+    
+    }
+    localStorage.setItem("search-history", JSON.stringify(searchArray));
 
     // setting up variables for ajax call
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -111,5 +141,7 @@ $("#search").on("click", function () {
 
     // sets date and displays the div
     $(".forecast").text(currentDay);
+    $(".welcome").css("display", "none")
     $(".hidden").css("display", "inline-block");
 })
+}
