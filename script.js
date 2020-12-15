@@ -41,7 +41,7 @@ $("#search").on("click", function () {
     } else {
         searchArray.push(searchQuery);
         console.log(searchArray)
-     // localStorage.setItem("search-history", JSON.stringify(searchArray));
+     localStorage.setItem("search-history", JSON.stringify(searchArray));
     }
    
 
