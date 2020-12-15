@@ -34,6 +34,8 @@ $("#search").on("click", function () {
             console.log(iconUrl)
             $("#condition-icon").attr("src", iconUrl);
             $(".icon").text(response.weather[0].description);
+            $(".humidity").text(response.main.humidity + "%");
+            $(".windspeed").text(response.wind.speed + " mph");
         })
 
 
