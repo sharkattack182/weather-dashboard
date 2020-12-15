@@ -50,7 +50,14 @@ $("#search").on("click", function () {
         })
 
     // 5 day forecast ajax call
-
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + searchQuery + "&cnt=5&appid=" + APIKey;
+    console.log(fiveDayURL);
+    $.ajax({
+        url: fiveDayURL,
+        method: "GET"
+    }) .then(function(res) {
+        console.log(res.list);
+    })
 
     // sets date and displays the div
     $(".forecast").text(currentDay);
