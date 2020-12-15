@@ -44,9 +44,9 @@ $("#search").on("click", function () {
             var f = (k - 273.15) * 9/5 + 32;
 
 
-            $(".temp").text(Math.round(f) + " F");
-            $(".humidity").text(response.main.humidity + "%");
-            $(".windspeed").text(response.wind.speed + " mph");
+            $(".temp").text("Temp: " + Math.round(f) + " F");
+            $(".humidity").text("Humidity: " + response.main.humidity + "%");
+            $(".windspeed").text("Windspeed: " + response.wind.speed + " mph");
         })
 
     // 5 day forecast ajax call
@@ -57,6 +57,36 @@ $("#search").on("click", function () {
         method: "GET"
     }) .then(function(res) {
         console.log(res.list);
+        var array = res.list;
+
+        // for loop iterates over the array of days
+        for (var i = 0; i < array.length; i++) {
+            var day = array[i];
+
+            // setting icon 
+            var newIcon = $("<img>");
+            var icon = day.weather[0].icon;
+            var url = "https://openweathermap.org/img/w/" + icon + ".png";
+            newIcon.attr("src", url);
+            $("." + i).append(newIcon);
+
+            // setting the temp
+            var newTemp = $("<h5>");
+            var kel = day.temp.day;
+            var far = (kel - 273.15) * 9/5 + 32;
+            newTemp.text("Temp: " + Math.round(far) + " F");
+            $("." + i).append(newTemp);
+
+            // setting the humidity
+            var newHum = $("<h5>");
+            newHum.text("Humidity: " + day.humidity + "%");
+            $("." + i).append(newHum);
+
+            // setting the windspeed
+            var newWS = $("<h5>");
+            newWS.text(Math.round(day.speed) + "mph");
+            $("." + i).append(newWS);
+        }
     })
 
     // sets date and displays the div
