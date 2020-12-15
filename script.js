@@ -12,6 +12,8 @@ console.log(render)
 var searches = JSON.parse(render);
 if(render === null) {
     localStorage.setItem("search-history", JSON.stringify(searchArray));
+} else {
+    searches = JSON.parse(render);
 }
 
 for (let i = 0; i < searches.length; i++) {
