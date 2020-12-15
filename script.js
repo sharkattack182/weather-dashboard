@@ -3,7 +3,6 @@ var currentDay = moment().format('dddd ll');
 console.log(currentDay);
 
 var searchArray = ["charlotte", "tempe", "atlanta"];
-localStorage.setItem("search-history", JSON.stringify(searchArray));
 
 window.onload = function() {
 // setting the app up to render all recent searches
@@ -42,8 +41,9 @@ $("#search").on("click", function () {
         console.log(searchArray);
     } else {
         searchArray.push(searchQuery);
-        console.log(searchArray)
-     localStorage.setItem("search-history", JSON.stringify(searchArray));
+        console.log(searchArray);
+        localStorage.removeItem("search-history")
+        localStorage.setItem("search-history", JSON.stringify(searchArray));
     }
    
 
