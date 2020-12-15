@@ -1,4 +1,4 @@
-var currentDay = moment().format('dddd MMMM Do YYYY');
+var currentDay = moment().format('dddd ll');
 
 console.log(currentDay)
 
@@ -62,6 +62,14 @@ $("#search").on("click", function () {
         // for loop iterates over the array of days
         for (var i = 0; i < array.length; i++) {
             var day = array[i];
+
+            // setting date
+            var increment = i + 1;
+            var date = moment().add(increment,'days');
+            var d = moment(date).format("dddd")
+            var newDate = $("<h5>");
+            newDate.text(d);
+            $("." + i).append(newDate);
 
             // setting icon 
             var newIcon = $("<img>");
