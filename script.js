@@ -38,11 +38,21 @@ $("#search").on("click", function () {
             console.log(iconUrl)
             $("#condition-icon").attr("src", iconUrl);
             $(".icon").text(response.weather[0].description);
+
+            // temp conversion
+            var k = response.main.temp;
+            var f = (k - 273.15) * 9/5 + 32;
+
+
+            $(".temp").text(Math.round(f) + " F");
             $(".humidity").text(response.main.humidity + "%");
             $(".windspeed").text(response.wind.speed + " mph");
         })
 
+    // 5 day forecast ajax call
 
+
+    // sets date and displays the div
     $(".forecast").text(currentDay);
     $(".hidden").css("display", "inline-block");
 })
